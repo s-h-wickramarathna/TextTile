@@ -13,11 +13,17 @@ public class Home extends javax.swing.JFrame {
     /**
      * Creates new form home
      */
-    public Home(String fname, String lname) {
+    public Home(String fname, String lname, int userId) {
         initComponents();
-        
-        jLabel2.setText("Welcome"+" : "+fname+" "+lname);
-        
+
+        jLabel2.setText("Welcome" + " : " + fname + " " + lname);
+
+        if (userId == 2) {
+            jButton5.setEnabled(true);
+            jButton3.setEnabled(true);
+
+        }
+
     }
 
     /**
@@ -46,21 +52,27 @@ public class Home extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jButton1.setText("User Management");
+        jButton1.setEnabled(false);
 
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jButton2.setText("Supplier Management");
+        jButton2.setEnabled(false);
 
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jButton3.setText("Customer Managment");
+        jButton3.setEnabled(false);
 
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jButton4.setText("Product Management");
+        jButton4.setEnabled(false);
 
         jButton5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jButton5.setText("Stock Management");
+        jButton5.setEnabled(false);
 
         jButton6.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jButton6.setText("Damage Products");
+        jButton6.setEnabled(false);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
 

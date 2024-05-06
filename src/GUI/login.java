@@ -132,11 +132,12 @@ public class login extends javax.swing.JFrame {
                     int status = result.getInt("status");
 
                     if (status == 1) {
-                        
+
                         String fname = result.getString("fname");
                         String lname = result.getString("lname");
-                        
-                        Home home = new Home(fname, lname);
+                        int userId = result.getInt("user_type_id");
+
+                        Home home = new Home(fname, lname, userId);
                         home.setVisible(true);
                         this.dispose();
 
