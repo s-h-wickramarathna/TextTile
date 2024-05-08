@@ -571,6 +571,7 @@ public class commonFunctions extends javax.swing.JFrame {
         try {
             
             DefaultTableModel tableModel = (DefaultTableModel)jTable1.getModel();
+            tableModel.setRowCount(0);
             ResultSet result = MySQL.Search(" SELECT * FROM `user` ");
             
             while (result.next()) {
