@@ -5,6 +5,8 @@
 package GUI;
 
 import com.formdev.flatlaf.FlatDarkLaf;
+import java.awt.BorderLayout;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -38,7 +40,6 @@ public class ResponsiveFrame extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,6 +50,7 @@ public class ResponsiveFrame extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("Home");
+        jLabel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
         jPanel4.add(jLabel1, java.awt.BorderLayout.LINE_START);
 
         jPanel3.setBackground(new java.awt.Color(0, 204, 204));
@@ -72,7 +74,12 @@ public class ResponsiveFrame extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(200, 418));
         jPanel1.setLayout(new java.awt.GridLayout(8, 1, 5, 5));
 
-        jButton4.setText("jButton4");
+        jButton4.setText("User");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton4);
 
         jButton5.setText("jButton5");
@@ -83,23 +90,16 @@ public class ResponsiveFrame extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.LINE_START);
 
-        jPanel2.setBackground(new java.awt.Color(204, 255, 204));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 592, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 418, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jPanel2, java.awt.BorderLayout.CENTER);
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        A a = new A();
+        this.add(a,BorderLayout.CENTER);
+//        SwingUtilities.updateComponentTreeUI(this);
+        repaint();
+        revalidate();
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -124,7 +124,6 @@ public class ResponsiveFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     // End of variables declaration//GEN-END:variables
