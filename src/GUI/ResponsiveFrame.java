@@ -6,6 +6,9 @@ package GUI;
 
 import com.formdev.flatlaf.FlatDarkLaf;
 import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Point;
+import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
 /**
@@ -13,6 +16,10 @@ import javax.swing.SwingUtilities;
  * @author Lenovo
  */
 public class ResponsiveFrame extends javax.swing.JFrame {
+    
+//    private Dimension frameSize;
+//    private Point framePosition;
+    private int frameState;
 
     /**
      * Creates new form ResponsiveFrame
@@ -42,6 +49,12 @@ public class ResponsiveFrame extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowDeiconified(java.awt.event.WindowEvent evt) {
+                formWindowDeiconified(evt);
+            }
+        });
 
         jPanel4.setBackground(new java.awt.Color(204, 204, 255));
         jPanel4.setPreferredSize(new java.awt.Dimension(792, 40));
@@ -57,13 +70,28 @@ public class ResponsiveFrame extends javax.swing.JFrame {
         jPanel3.setPreferredSize(new java.awt.Dimension(250, 40));
         jPanel3.setLayout(new java.awt.GridLayout(1, 0, 5, 5));
 
-        jButton1.setText("jButton1");
+        jButton1.setText("Minimize");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel3.add(jButton1);
 
-        jButton2.setText("jButton2");
+        jButton2.setText("Size");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel3.add(jButton2);
 
-        jButton3.setText("jButton3");
+        jButton3.setText("Close");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         jPanel3.add(jButton3);
 
         jPanel4.add(jPanel3, java.awt.BorderLayout.LINE_END);
@@ -91,15 +119,47 @@ public class ResponsiveFrame extends javax.swing.JFrame {
         getContentPane().add(jPanel1, java.awt.BorderLayout.LINE_START);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         A a = new A();
-        this.add(a,BorderLayout.CENTER);
+        this.add(a, BorderLayout.CENTER);
 //        SwingUtilities.updateComponentTreeUI(this);
         repaint();
         revalidate();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+//        frameSize = this.getSize();
+//        framePosition = this.getLocation();
+        frameState = this.getExtendedState();
+        this.setExtendedState(JFrame.ICONIFIED);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        if (this.getExtendedState() == JFrame.MAXIMIZED_BOTH) {
+            this.setExtendedState(JFrame.NORMAL);
+            
+        } else {
+            this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+            
+        }
+
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void formWindowDeiconified(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowDeiconified
+        // TODO add your handling code here:
+//        this.setSize(frameSize);
+        this.setExtendedState(frameState);
+//        this.setLocation(framePosition);
+        
+
+    }//GEN-LAST:event_formWindowDeiconified
 
     /**
      * @param args the command line arguments
