@@ -6,6 +6,8 @@ package GUI;
 
 import Model.MySQL;
 import com.formdev.flatlaf.FlatDarkLaf;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.util.HashMap;
 import java.util.Vector;
@@ -14,6 +16,7 @@ import javax.swing.table.DefaultTableModel;
 import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperPrintManager;
 import net.sf.jasperreports.view.JasperViewer;
 
 /**
@@ -324,6 +327,11 @@ public class commonFunctions extends javax.swing.JFrame {
         jButton19.setText("Report Table");
 
         jButton20.setText("Report Database");
+        jButton20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton20ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -646,12 +654,34 @@ public class commonFunctions extends javax.swing.JFrame {
 
             JasperPrint jasperPrint = JasperFillManager.fillReport(reportPath, map, dataSource);
             JasperViewer.viewReport(jasperPrint,false);
+            
 
         } catch (Exception e) {
             e.printStackTrace();
         }
 
     }//GEN-LAST:event_jButton18ActionPerformed
+
+    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
+        try {
+            HashMap<String, Object> map = new HashMap<>();
+            
+
+            String reportPath = "src//Reports//TestReport2.jasper";
+            
+           Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/textile_db", "root", "123456");
+            
+             JREmptyDataSource dataSource ;
+
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reportPath, map, connection);
+            JasperViewer.viewReport(jasperPrint,false);
+            
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_jButton20ActionPerformed
 
     /**
      * @param args the command line arguments
