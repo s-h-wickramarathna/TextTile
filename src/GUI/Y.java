@@ -65,9 +65,9 @@ public class Y extends javax.swing.JFrame {
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
                     .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -106,12 +106,10 @@ public class Y extends javax.swing.JFrame {
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         if(jToggleButton1.isSelected()){
-            System.out.println("1");
             
             Thread t = new Thread(()->{
             
                 for (int i = 250; i >= 50; i-= 10) {
-                    System.out.println(i);
                     jPanel1.setPreferredSize(new Dimension(i,jPanel1.getHeight()));
                     SwingUtilities.updateComponentTreeUI(jPanel1);
                     
@@ -130,7 +128,6 @@ public class Y extends javax.swing.JFrame {
             t.start();
             
         }else{
-            System.out.println("2");
             
              Thread t = new Thread(()->{
             

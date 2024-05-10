@@ -137,8 +137,8 @@ public class login extends javax.swing.JFrame {
                         String lname = result.getString("lname");
                         int userId = result.getInt("user_type_id");
 
-                        Home home = new Home(fname, lname, userId);
-                        home.setVisible(true);
+//                        Home home = new Home(fname, lname, userId);
+//                        home.setVisible(true);
                         this.dispose();
 
                     } else {
